@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Promosi SMK BINA INFORMATIKA</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f9ff;
+      color: #333;
+    }
+
+    header {
+      background: #005792;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .header-title {
+      font-size: 2em;
+      animation: fadeInDown 2s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .marquee {
+      background: #ffcc00;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 0;
+      overflow: hidden;
+    }
+
+    .marquee span {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 15s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .content {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    .content h2 {
+      color: #005792;
+      margin-top: 30px;
+    }
+
+    ul {
+      list-style: square;
+      margin-left: 20px;
+    }
+
+    .keunggulan {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .card {
+      background: #eaf4fc;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    button {
+      padding: 12px 25px;
+      background: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .accordion {
+      background: #f1f1f1;
+      color: #333;
+      cursor: pointer;
+      padding: 15px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      transition: background 0.3s ease;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .accordion:hover {
+      background: #ddd;
+    }
+
+    .panel {
+      padding: 0 15px;
+      display: none;
+      background-color: white;
+      overflow: hidden;
+      border-left: 2px solid #005792;
+      border-right: 2px solid #005792;
+      border-bottom: 2px solid #005792;
+      border-radius: 0 0 5px 5px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #e0e0e0;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+
+    a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    /* Popup */
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(4px);
+      background: rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    #struk {
+      display: none;
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%) scale(0.8);
+      background: #fff;
+      padding: 20px;
+      border: 2px solid #25D366;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    #struk.active {
+      display: block;
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+
+    #overlay.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-title">Selamat Datang di SMK BINA INFORMATIKA</div>
+    <p>Alamat: Jl. Re. Abdullah No.16 RT.02/RW.01, Pasir Jaya, Bogor Barat</p>
+    <img src="logo.jpg" alt="Logo Sekolah" width="150">
+    <p>Contact Person: +62 896-1735-4862</p>
+    <p>Email: <a href="mailto:smkbifor@gmail.com" target="_blank">smkbifor@gmail.com</a></p>
+    <p>Instagram: @smkbinainformatika</p>
+    <p><strong>Free DSP untuk 100 Orang Pertama!</strong></p>
+  </header>
+
+  <div class="marquee">
+    <span>Pendaftaran Tahun Ajaran Baru Telah Dibuka! Diskon hingga 50% bagi 50 pendaftar pertama!</span>
+  </div>
+
+  <div class="content">
+    <h2>Ekstrakurikuler</h2>
+    <ul>
+      <li>PMR</li>
+      <li>Rohis</li>
+      <li>Bahasa German</li>
+      <li>Paskibra</li>
+      <li>Pramuka</li>
+      <li>Tari</li>
+      <li>Dance</li>
+      <li>BKC</li>
+      <li>Futsal</li>
+    </ul>
+
+    <h2>Jurusan yang Tersedia</h2>
+    <button class="accordion">MM (Multimedia)</button>
+    <div class="panel"><p>Mempelajari desain grafis, animasi, editing video, fotografi, serta produksi media digital.</p></div>
+
+    <button class="accordion">RPL (Rekayasa Perangkat Lunak)</button>
+    <div class="panel"><p>Fokus pada pembuatan aplikasi, pengembangan software, dan pemrograman.</p></div>
+
+    <button class="accordion">TKJ (Teknik Komputer dan Jaringan)</button>
+    <div class="panel"><p>Perakitan komputer, instalasi jaringan, konfigurasi server, dan sistem jaringan.</p></div>
+
+    <button class="accordion">OTKP (Otomatisasi dan Tata Kelola Perkantoran)</button>
+    <div class="panel"><p>Administrasi modern, pengelolaan dokumen, dan teknologi perkantoran.</p></div>
+
+    <button class="accordion">PKM (Perbankan dan Keuangan Makro)</button>
+    <div class="panel"><p>Perbankan, keuangan, akuntansi, investasi, dan ekonomi makro.</p></div>
+
+    <h2>Kenapa Harus Memilih SMK BINA INFORMATIKA?</h2>
+    <div class="keunggulan">
+      <div class="card">✅ Jurusan Unggulan dan Terakreditasi</div>
+      <div class="card">✅ Fasilitas Lengkap dan Modern</div>
+      <div class="card">✅ Guru Berpengalaman dan Profesional</div>
+      <div class="card">✅ Magang dan Kerja Sama Dunia Industri</div>
+      <div class="card">✅ Ekstrakurikuler Beragam dan Berprestasi</div>
+      <div class="card">✅ Lulusan Siap Kerja atau Kuliah</div>
+    </div>
+
+    <h2>Waktu Pendaftaran</h2>
+    <p>Pukul 09:00 - 15:00, Hari Senin - Sabtu</p>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="https://wa.me/6289617354862?text=Halo%20SMK%20BINA%20INFORMATIKA,%20saya%20ingin%20mendaftar%20sebagai%20calon%20siswa." target="_blank" onclick="showStruk()">
+        <button style="background: #25D366;">Daftar Sekarang via WhatsApp</button>
+      </a>
+    </div>
+
+    <h2>Tertarik? Isi Minat Anda di Bawah Ini!</h2>
+    <form onsubmit="return kirimForm()">
+      <label>Nama Lengkap:</label><br>
+      <input type="text" required style="width: 100%; padding: 10px; margin: 10px 0;"><br>
+
+      <label>Pilih Jurusan:</label><br>
+      <select required style="width: 100%; padding: 10px; margin: 10px 0;">
+        <option value="">-- Pilih Jurusan --</option>
+        <option>Multimedia (MM)</option>
+        <option>Rekayasa Perangkat Lunak (RPL)</option>
+        <option>Teknik Komputer Jaringan (TKJ)</option>
+        <option>Otomatisasi & Tata Kelola Perkantoran (OTKP)</option>
+        <option>Perbankan & Keuangan Makro (PKM)</option>
+      </select><br>
+
+      <button type="submit">Kirim Minat</button>
+    </form>
+  </div>
+
+  <div id="overlay"></div>
+
+  <div id="struk">
+    <h3>✅ Pendaftaran Berhasil!</h3>
+    <p>Terima kasih telah mendaftar di <strong>SMK BINA INFORMATIKA</strong>.</p>
+    <p>Tim kami akan menghubungi Anda melalui WhatsApp.</p>
+    <button onclick="closeStruk()">Tutup</button>
+  </div>
+
+  <footer>
+    &copy; M.Hamdan Alawi XI RPL 2025.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    function showStruk() {
+      setTimeout(() => {
+        document.getElementById('struk').classList.add('active');
+        document.getElementById('overlay').classList.add('active');
+      }, 1000);
+    }
+
+    function closeStruk() {
+      document.getElementById('struk').classList.remove('active');
+      document.getElementById('overlay').classList.remove('active');
+    }
+
+    function kirimForm() {
+      alert("Terima kasih! Minat Anda sudah kami catat.");
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+      return false;
+    }
+
+    // Accordion
+    const acc = document.getElementsByClassName("accordion");
+    for (let i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = panel.style.display === "block" ? "none" : "block";
+      });
+    }
+  </script>
+</body>
+</html>
